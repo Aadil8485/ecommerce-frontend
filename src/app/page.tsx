@@ -1,9 +1,23 @@
+import Hero from "@/src/components/home/Hero";
+import Categories from "@/src/components/home/Categories";
+import FeaturedProducts from "@/src/components/home/FeaturedProducts";
+import FlashSale from "@/src/components/home/FlashSale";
+import NewArrivals from "@/src/components/home/NewArrivals";
+import AIRecommendations from "@/src/components/home/AIRecommendations";
+import Newsletter from "@/src/components/home/Newsletter";
+import Footer from "@/src/components/layout/Footer";
+
 export default function HomePage() {
   return (
-    <main className="mx-auto max-w-7xl p-10">
-      <h1 className="text-4xl font-bold">Welcome to AI Shop</h1>
-
-      <p className="mt-5 text-gray-500">AI Powered Ecommerce Website</p>
-    </main>
+    <>
+      <Hero />
+      <Categories />
+      <FeaturedProducts />
+      <FlashSale />
+      <NewArrivals />
+      <AIRecommendations />
+      <Newsletter />
+      <Footer />
+    </>
   );
 }
