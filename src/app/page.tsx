@@ -9,6 +9,7 @@ import Newsletter from "@/src/components/home/Newsletter";
 import Footer from "@/src/components/layout/Footer";
 import LoginPage from "@/src/app/(auth)/login/page";
 import RegisterPage from "@/src/app/(auth)/register/page";
+import LogoutPage from "@/src/app/(auth)/logout/page";
 
 export default function HomePage() {
   return (
@@ -24,6 +25,7 @@ export default function HomePage() {
       <Footer />
       <LoginPage />
       <RegisterPage />
+      <LogoutPage />
     </>
   );
 }
