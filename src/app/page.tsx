@@ -13,6 +13,7 @@ import LogoutPage from "@/src/app/(auth)/logout/page";
 import Profile from "@/src/app/profile/profile";
 import UpdateProfilePage from "@/src/app/profile/UpdateProfile";
 import ChangePasswordPage from "@/src/app/profile/PasswordChange";
+import ProductsPage from "@/src/components/products/Products";
 
 export default function HomePage() {
   return (
@@ -32,6 +33,7 @@ export default function HomePage() {
       <Profile />
       <UpdateProfilePage />
       <ChangePasswordPage />
+      <ProductsPage />
     </>
   );
 }
