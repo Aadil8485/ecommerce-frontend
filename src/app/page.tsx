@@ -10,6 +10,7 @@ import Footer from "@/src/components/layout/Footer";
 import LoginPage from "@/src/app/(auth)/login/page";
 import RegisterPage from "@/src/app/(auth)/register/page";
 import LogoutPage from "@/src/app/(auth)/logout/page";
+import Profile from "@/src/app/profile/profile";
 
 export default function HomePage() {
   return (
@@ -26,6 +27,7 @@ export default function HomePage() {
       <LoginPage />
       <RegisterPage />
       <LogoutPage />
+      <Profile />
     </>
   );
 }
