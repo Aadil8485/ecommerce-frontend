@@ -1,3 +1,4 @@
+import HeroSlider from "@/src/components/home/HeroSlider";
 import LoginPage from "@/src/app/(auth)/login/page";
 import RegisterPage from "@/src/app/(auth)/register/page";
 import LogoutPage from "@/src/app/(auth)/logout/page";
@@ -13,6 +14,7 @@ import WishlistPage from "@/src/components/wishlist/wishlist";
 export default function HomePage() {
   return (
     <>
+      <HeroSlider />
       <LoginPage />
       <RegisterPage />
       <LogoutPage />
