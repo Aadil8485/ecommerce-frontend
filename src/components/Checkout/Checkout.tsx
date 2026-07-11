@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function Checkout() {
+export default function CheckoutPage() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
