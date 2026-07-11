@@ -6,6 +6,7 @@ import UpdateProfilePage from "@/src/app/profile/UpdateProfile";
 import ChangePasswordPage from "@/src/app/profile/PasswordChange";
 import ProductsPage from "@/src/components/products/Products";
 import CartPage from "@/src/components/cart/Cart";
+import Checkout from "@/src/components/Checkout/Checkout";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <ChangePasswordPage />
       <ProductsPage />
       <CartPage />
+      <Checkout />
     </>
   );
 }
