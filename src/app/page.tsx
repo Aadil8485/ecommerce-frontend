@@ -1,4 +1,5 @@
 import HeroSlider from "@/src/components/home/HeroSlider";
+import Carousel from "@/src/components/home/Carousel";
 import LoginPage from "@/src/app/(auth)/login/page";
 import RegisterPage from "@/src/app/(auth)/register/page";
 import LogoutPage from "@/src/app/(auth)/logout/page";
@@ -15,6 +16,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSlider />
+      <Carousel />
       <LoginPage />
       <RegisterPage />
       <LogoutPage />
