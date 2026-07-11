@@ -8,6 +8,7 @@ import ProductsPage from "@/src/components/products/Products";
 import CartPage from "@/src/components/cart/Cart";
 import CheckoutPage from "@/src/components/Checkout/Checkout";
 import ProductPage from "@/src/components/product/product";
+import WishlistPage from "@/src/components/wishlist/wishlist";
 
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
       <CartPage />
       <CheckoutPage />
       <ProductPage />
+      <WishlistPage />
     </>
   );
 }
