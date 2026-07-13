@@ -54,7 +54,7 @@ export default function Navbar() {
                       href="/electronics"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600"
                     >
-                      Electronics
+                      Categories
                     </Link>
                     <Link
                       href="/clothing"

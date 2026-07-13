@@ -11,6 +11,7 @@ import CartPage from "@/src/components/cart/Cart";
 import CheckoutPage from "@/src/components/Checkout/Checkout";
 import ProductPage from "@/src/components/product/product";
 import WishlistPage from "@/src/components/wishlist/wishlist";
+import CategoriesPage from "@/src/components/categories/Categories";
 
 export default function HomePage() {
   return (
@@ -28,6 +29,7 @@ export default function HomePage() {
       <CheckoutPage />
       <ProductPage />
       <WishlistPage />
+      <CategoriesPage />
     </>
   );
 }
