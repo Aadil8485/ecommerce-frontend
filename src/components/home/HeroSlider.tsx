@@ -1,166 +1,121 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+
+// Mock data for the slider
+const slides = [
+  {
+    id: 1,
+    tagline: "Exclusive Deal 40% Off",
+    title: "Power Meets Elegance - Apple MacBook Pro is Here for you!",
+    image:
+      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1000&auto=format&fit=crop",
+    buttonText: "Order Now",
+    buttonLink: "/shop",
+  },
+  {
+    id: 2,
+    tagline: "New Arrival 20% Off",
+    title: "Experience the Ultimate Sound with AirPods Max.",
+    image:
+      "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?q=80&w=1000&auto=format&fit=crop",
+    buttonText: "Shop Audio",
+    buttonLink: "/shop/audio",
+  },
+  {
+    id: 3,
+    tagline: "Limited Time Offer",
+    title: "Capture Every Moment - Sony Alpha A7III on Sale.",
+    image:
+      "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1000&auto=format&fit=crop",
+    buttonText: "View Cameras",
+    buttonLink: "/shop/cameras",
+  },
+];
 
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
 
-  // Sample slider data using placeholder images
-  const slides = [
-    {
-      id: 1,
-      title: "Next-Generation Audio",
-      subtitle:
-        "Experience sound like never before with our new wireless series.",
-      ctaText: "Shop Earbuds",
-      ctaLink: "/shop/audio",
-      // Using a Unsplash placeholder for demonstration
-      bgImage:
-        "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?q=80&w=2000&auto=format&fit=crop",
-    },
-    {
-      id: 2,
-      title: "Capture Every Moment",
-      subtitle:
-        "Pro-grade cameras in the palm of your hand. Discover the Alpha series.",
-      ctaText: "Explore Phones",
-      ctaLink: "/shop/phones",
-      bgImage:
-        "https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=2000&auto=format&fit=crop",
-    },
-    {
-      id: 3,
-      title: "Work Smart, Play Hard",
-      subtitle:
-        "Ergonomic setups designed for peak performance and ultimate comfort.",
-      ctaText: "View Workspace",
-      ctaLink: "/shop/workspace",
-      bgImage:
-        "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=2000&auto=format&fit=crop",
-    },
-  ];
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  }, [slides.length]);
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
-
-  // Autoplay functionality
+  // Auto-slide functionality (Optional: remove this useEffect if you only want manual sliding)
   useEffect(() => {
-    if (!isHovered) {
-      const slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-      return () => clearInterval(slideInterval);
-    }
-  }, [isHovered, nextSlide]);
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 5000); // Changes slide every 5 seconds
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <div
-      className="relative w-full h-[600px] md:h-[700px] overflow-hidden bg-gray-900"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Slides */}
-      <div
-        className="flex transition-transform duration-700 ease-in-out h-full w-full"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-      >
-        {slides.map((slide) => (
-          <div
-            key={slide.id}
-            className="min-w-full h-full relative flex items-center justify-center"
-          >
-            {/* Background Image with Overlay */}
+    <div className="w-full bg-white pb-8 pt-4">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Slider Container */}
+        <div className="relative overflow-hidden rounded-xl bg-[#eff1f6] min-h-[450px] md:min-h-[500px]">
+          {slides.map((slide, index) => (
             <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${slide.bgImage})` }}
+              key={slide.id}
+              className={`absolute inset-0 flex transition-opacity duration-700 ease-in-out ${
+                index === currentSlide
+                  ? "opacity-100 z-10"
+                  : "opacity-0 z-0 pointer-events-none"
+              }`}
             >
-              <div className="absolute inset-0 bg-black/40"></div>
+              <div className="flex h-full w-full flex-col-reverse items-center justify-between px-8 py-10 md:flex-row md:px-16 lg:px-24">
+                {/* Left Side: Text Content */}
+                <div className="w-full text-center md:w-1/2 md:text-left mt-8 md:mt-0">
+                  <p className="mb-3 text-sm font-semibold tracking-wide text-orange-500 md:text-base">
+                    {slide.tagline}
+                  </p>
+                  <h1 className="mb-8 text-3xl font-extrabold leading-tight text-gray-800 sm:text-4xl lg:text-5xl">
+                    {slide.title}
+                  </h1>
+
+                  <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0 md:justify-start">
+                    <Link
+                      href={slide.buttonLink}
+                      className="rounded-full bg-orange-500 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                    >
+                      {slide.buttonText}
+                    </Link>
+                    <Link
+                      href="/learn-more"
+                      className="group flex items-center text-sm font-semibold text-gray-700 transition-colors hover:text-orange-500"
+                    >
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Right Side: Image */}
+                <div className="w-full flex justify-center md:w-1/2">
+                  <img
+                    src={slide.image}
+                    alt={slide.title}
+                    className="max-h-[250px] object-contain drop-shadow-2xl md:max-h-[350px] lg:max-h-[400px]"
+                    // Note: In production, switch to Next.js <Image /> component for better optimization
+                  />
+                </div>
+              </div>
             </div>
+          ))}
+        </div>
 
-            {/* Content */}
-            <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
-              <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-4 opacity-0 animate-fade-in-up">
-                {slide.title}
-              </h2>
-              <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl opacity-0 animate-fade-in-up delay-100">
-                {slide.subtitle}
-              </p>
-              <Link
-                href={slide.ctaLink}
-                className="inline-block bg-white text-gray-900 font-semibold px-8 py-3.5 rounded-full hover:bg-gray-100 transition-colors transform hover:scale-105 duration-200 shadow-lg opacity-0 animate-fade-in-up delay-200"
-              >
-                {slide.ctaText}
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Left Navigation Arrow */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/30 hover:bg-black/50 text-white rounded-full backdrop-blur-sm transition-all focus:outline-none"
-        aria-label="Previous slide"
-      >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
-      </button>
-
-      {/* Right Navigation Arrow */}
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/30 hover:bg-black/50 text-white rounded-full backdrop-blur-sm transition-all focus:outline-none"
-        aria-label="Next slide"
-      >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M9 5l7 7-7 7"
-          />
-        </svg>
-      </button>
-
-      {/* Dot Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              currentSlide === index
-                ? "bg-white w-8"
-                : "bg-white/50 hover:bg-white/80"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+        {/* Navigation Dots */}
+        <div className="mt-8 flex items-center justify-center space-x-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2 w-2 rounded-full transition-all duration-300 ${
+                index === currentSlide
+                  ? "bg-orange-500 w-4"
+                  : "bg-gray-300 hover:bg-gray-400"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
