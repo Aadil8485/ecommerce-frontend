@@ -36,18 +36,6 @@ export default function Navbar() {
             >
               Shop
             </Link>
-            <Link
-              href="/about"
-              className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
-            >
-              About Us
-            </Link>
-            <Link
-              href="/contact"
-              className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
-            >
-              Contact
-            </Link>
           </div>
 
           {/* 3. Right Side: Icons & Account */}
