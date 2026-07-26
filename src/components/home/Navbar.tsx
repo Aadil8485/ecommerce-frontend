@@ -31,7 +31,7 @@ export default function Navbar() {
               Home
             </Link>
             <Link
-              href="products"
+              href="/products"
               className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
             >
               Shop

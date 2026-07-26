@@ -1,71 +1,112 @@
 import Link from "next/link";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaXTwitter,
+  FaYoutube,
+} from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-gray-200 bg-white pt-16 pb-8">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Top Section: Main Footer Content */}
-        <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-4 lg:gap-12">
-          {/* Column 1: Brand & Description (Takes up 2 columns on desktop) */}
-          <div className="md:col-span-2 md:pr-10">
-            <Link href="/" className="mb-6 flex items-center">
-              {/* Simulating the 'Q' icon to match the navbar */}
-              <span className="text-3xl font-bold text-blue-500">E</span>
-              <span className="text-2xl font-bold tracking-tight text-gray-800">
-                -Commerce
-              </span>
+    <footer className="bg-gray-900 text-gray-300 py-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top Grid Section */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand & Description */}
+          <div className="md:col-span-1">
+            <Link
+              href="/"
+              className="text-2xl font-bold text-white tracking-wide"
+            >
+              E-Commerce
             </Link>
-            <p className="text-sm leading-relaxed text-gray-500">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
+            <p className="mt-4 text-sm text-gray-400 leading-relaxed">
+              The E-Commerce Group is one of India’s leading digital commerce
+              entities and includes group companies .
             </p>
           </div>
 
-          {/* Column 2: Company Links */}
+          {/* Quick Links */}
           <div>
-            <h3 className="mb-5 text-base font-semibold text-gray-900">
-              Company
+            <h3 className="text-lg font-semibold text-white mb-4">
+              E-Commerce
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               <li>
                 <Link
                   href="/"
-                  className="text-sm text-gray-500 transition-colors hover:text-gray-900"
+                  className="hover:text-white transition-colors duration-200"
                 >
                   Home
                 </Link>
               </li>
-              <li></li>
-              <li></li>
-              <li></li>
             </ul>
           </div>
 
-          {/* Column 3: Contact Info */}
+          {/* Support */}
           <div>
-            <h3 className="mb-5 text-base font-semibold text-gray-900">
-              Get in touch
-            </h3>
-            <ul className="space-y-4">
-              <li className="text-sm text-gray-500">+1-234-000-111</li>
+            <h3 className="text-lg font-semibold text-white mb-4">Support</h3>
+            <ul className="space-y-3">
               <li>
-                <a
-                  href="mailto:contact@greatstack.dev"
-                  className="text-sm text-gray-500 transition-colors hover:text-gray-900"
+                <Link
+                  href="/products"
+                  className="hover:text-white transition-colors duration-200"
                 >
-                  contact@E-commerce.dev
-                </a>
+                  Shop
+                </Link>
               </li>
             </ul>
           </div>
+
+          {/* Social Media */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
+            <div className="flex space-x-5">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-blue-500 transition-colors duration-300"
+                aria-label="Facebook"
+              >
+                <FaFacebook size={24} />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-pink-500 transition-colors duration-300"
+                aria-label="Instagram"
+              >
+                <FaInstagram size={24} />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+                aria-label="X (Twitter)"
+              >
+                {/* Note: Using fa6 for the updated X logo */}
+                <FaXTwitter size={24} />
+              </a>
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-red-500 transition-colors duration-300"
+                aria-label="YouTube"
+              >
+                <FaYoutube size={24} />
+              </a>
+            </div>
+          </div>
         </div>
 
-        {/* Bottom Section: Copyright */}
-        <div className="border-t border-gray-200 pt-6 text-center">
-          <p className="text-sm text-gray-600">
-            Copyright 2026 © GreatStack.dev All Right Reserved.
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-center items-center text-sm text-gray-500">
+          <p>
+            &copy; {new Date().getFullYear()} E-Commerce. All rights reserved.
           </p>
         </div>
       </div>
