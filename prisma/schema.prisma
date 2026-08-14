@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:9890402206@localhost:3306/ecommerce_db"
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?  
+  price       Float
+  stock       Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+// Home page ke top banner/slider ke liye
+model HeroSlider {
+  id        Int      @id @default(autoincrement())
+  title     String
+  imageUrl  String
+  linkUrl   String?  // Banner par click karne se kahan jayega (optional)
+  isActive  Boolean  @default(true) // Agar kisi banner ko temporarily band karna ho
+  createdAt DateTime @default(now())
+}

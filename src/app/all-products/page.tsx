@@ -49,6 +49,15 @@ const products = [
     image:
       "https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=500&auto=format&fit=crop",
   },
+  {
+    id: 6,
+    name: "ASUS ROG Zephyrus G18",
+    description: "The ASUS ROG Zephyrus G16 gamin...",
+    price: 1999.99,
+    rating: 4.5,
+    image:
+      "https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=500&auto=format&fit=crop",
+  },
 ];
 
 export default function Products() {
@@ -71,7 +80,7 @@ export default function Products() {
           {products.map((product) => (
             <div key={product.id} className="group flex flex-col">
               {/* Image Container with Light Gray Background */}
-              <Link href={`/product/${product.id}`}>
+              <Link href={`/product-details/${product.id}`}>
                 <div className="relative mb-4 flex aspect-square items-center justify-center rounded-2xl bg-[#f3f4f6] p-6 transition-all duration-300 group-hover:shadow-md">
                   {/* Favorite Heart Button */}
                   <button className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white text-gray-400 shadow-sm transition-colors hover:text-red-500 focus:outline-none">
@@ -116,7 +125,7 @@ export default function Products() {
                     ${product.price}
                   </span>
                   <Link
-                    href={`/product/${product.id}`}
+                    href={`/product-details/${product.id}`}
                     className="rounded-full border border-gray-200 bg-white px-5 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-gray-900"
                   >
                     Buy now

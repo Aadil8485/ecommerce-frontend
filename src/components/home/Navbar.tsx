@@ -2,7 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, User, Menu, X } from "lucide-react";
+import {
+  Search,
+  User,
+  Menu,
+  X,
+  ShoppingCart,
+  Heart,
+  Package,
+} from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +22,6 @@ export default function Navbar() {
           {/* 1. Left Side: Logo */}
           <div className="flex flex-1 items-center justify-start">
             <Link href="/" className="flex items-center">
-              {/* Simulating the 'Q' icon */}
               <span className="text-3xl font-bold text-blue-500">E</span>
               <span className="text-2xl font-bold tracking-tight text-gray-800">
                 -Commerce
@@ -31,25 +38,53 @@ export default function Navbar() {
               Home
             </Link>
             <Link
-              href="/products"
+              href="/all-products"
               className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
             >
               Shop
             </Link>
           </div>
 
-          {/* 3. Right Side: Icons & Account */}
+          {/* 3. Right Side: Icons & Account (Desktop) */}
           <div className="hidden md:flex flex-1 items-center justify-end space-x-6">
             <button className="text-gray-600 transition-colors hover:text-gray-900">
               <Search className="h-5 w-5" strokeWidth={1.5} />
               <span className="sr-only">Search</span>
             </button>
+
+            <Link
+              href="/wishlist"
+              className="text-gray-600 transition-colors hover:text-gray-900"
+            >
+              <Heart className="h-5 w-5" strokeWidth={1.5} />
+              <span className="sr-only">Wishlist</span>
+            </Link>
+
+            <Link
+              href="/my-orders"
+              className="text-gray-600 transition-colors hover:text-gray-900"
+            >
+              <Package className="h-5 w-5" strokeWidth={1.5} />
+              <span className="sr-only">Orders</span>
+            </Link>
+
+            <Link
+              href="/cart"
+              className="text-gray-600 transition-colors hover:text-gray-900"
+            >
+              <ShoppingCart className="h-5 w-5" strokeWidth={1.5} />
+              <span className="sr-only">Cart</span>
+            </Link>
+
             <Link
               href="/login"
               className="flex items-center space-x-2 text-gray-600 transition-colors hover:text-gray-900"
             >
               <User className="h-5 w-5" strokeWidth={1.5} />
-              <span className="text-sm font-medium">Account</span>
+              {/* Hidden on medium screens to save space, visible on large screens */}
+              <span className="hidden lg:block text-sm font-medium">
+                Account
+              </span>
             </Link>
           </div>
 
@@ -100,17 +135,43 @@ export default function Navbar() {
             </Link>
           </div>
 
+          {/* Mobile Bottom Icon Bar */}
           <div className="border-t border-gray-200 pb-4 pt-4">
-            <div className="flex items-center justify-around px-5">
+            <div className="flex items-center justify-around px-2">
               <button className="flex flex-col items-center text-gray-600 hover:text-gray-900">
-                <Search className="h-6 w-6" />
+                <Search className="h-6 w-6" strokeWidth={1.5} />
                 <span className="mt-1 text-xs font-medium">Search</span>
               </button>
+
+              <Link
+                href="/wishlist"
+                className="flex flex-col items-center text-gray-600 hover:text-gray-900"
+              >
+                <Heart className="h-6 w-6" strokeWidth={1.5} />
+                <span className="mt-1 text-xs font-medium">Wishlist</span>
+              </Link>
+
+              <Link
+                href="/orders"
+                className="flex flex-col items-center text-gray-600 hover:text-gray-900"
+              >
+                <Package className="h-6 w-6" strokeWidth={1.5} />
+                <span className="mt-1 text-xs font-medium">Orders</span>
+              </Link>
+
+              <Link
+                href="/cart"
+                className="flex flex-col items-center text-gray-600 hover:text-gray-900"
+              >
+                <ShoppingCart className="h-6 w-6" strokeWidth={1.5} />
+                <span className="mt-1 text-xs font-medium">Cart</span>
+              </Link>
+
               <Link
                 href="/account"
                 className="flex flex-col items-center text-gray-600 hover:text-gray-900"
               >
-                <User className="h-6 w-6" />
+                <User className="h-6 w-6" strokeWidth={1.5} />
                 <span className="mt-1 text-xs font-medium">Account</span>
               </Link>
             </div>
