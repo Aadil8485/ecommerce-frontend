@@ -5,7 +5,7 @@ import AddToCartBtn from "./AddToCartBtn";
 const prisma = new PrismaClient();
 
 // Image theek karne wala function
-const getValidImage = (url) => {
+const getValidImage = (url: any) => {
   if (!url || url.startsWith("/images/")) {
     return "https://via.placeholder.com/600?text=No+Image";
   }

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { PrismaClient } from "@prisma/client";
 
 // 🔥 YEH HAI MASTER FILTER
-const getValidImage = (url) => {
+const getValidImage = (url: any) => {
   // Galti yahan thi: Humein purane "/images/" ko block karna hai, "/uploads/" ko nahi!
   if (!url || url.startsWith("/images/")) {
     return "https://via.placeholder.com/300?text=No+Image";

@@ -5,7 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "../context/CartContext";
 // getValidImage function yahan bhi chahiye hoga
-const getValidImage = (url) => {
+const getValidImage = (url: any) => {
   if (!url || url.startsWith("/images/")) {
     return "https://via.placeholder.com/300?text=No+Image";
   }
