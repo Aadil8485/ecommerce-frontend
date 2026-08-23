@@ -18,7 +18,7 @@ export default function ProductGridWithSearch({
   allProducts: any;
 }) {
   const [searchTerm, setSearchTerm] = useState("");
-  const { addToCart } = useCart();
+  const { addToCart } = useCart() as any;
 
   // Search Logic
   const filteredProducts = allProducts.filter(
