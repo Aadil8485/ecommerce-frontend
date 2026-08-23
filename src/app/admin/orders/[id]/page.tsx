@@ -117,7 +117,7 @@ export default async function OrderDetailsPage({ params }: { params: any }) {
                   Total Amount
                 </span>
                 <span className="text-2xl font-extrabold text-green-600">
-                  ₹{order.totalAmount || order.total || 0}
+                  ₹{order.totalPrice || 0}
                 </span>
               </div>
             </div>
