@@ -10,7 +10,7 @@ const prisma = new PrismaClient();
 // 🔥 Yeh ek Server Component hai (isliye "use client" nahi likha)
 export default async function OrdersPage() {
   // 1. Check user session
-  const session = await getServerSession(authOptions);
+  const session: any = await getServerSession(authOptions as any);
 
   if (!session) {
     redirect("/login"); // Agar login nahi hai toh bahar fenk do

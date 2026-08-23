@@ -10,7 +10,7 @@ const prisma = new PrismaClient();
 export async function POST(request) {
   try {
     // 1. Security Check: Kya user sach me login hai?
-    const session = await getServerSession(authOptions);
+    const session: any = await getServerSession(authOptions as any);
 
     if (!session) {
       return NextResponse.json(

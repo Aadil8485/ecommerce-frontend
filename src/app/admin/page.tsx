@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default async function AdminDashboard() {
   // 1. Session check karo
-  const session = await getServerSession(authOptions);
+  const session: any = await getServerSession(authOptions as any);
 
   // 2. 🛡️ SUPER SECURITY: Agar session nahi hai YA role 'ADMIN' nahi hai, toh block karo!
   if (!session || session.user.role !== "ADMIN") {

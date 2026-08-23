@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 
 export default async function AdminOrdersPage() {
   // 1. 🛡️ Security Check: Sirf ADMIN yahan aa sakta hai
-  const session = await getServerSession(authOptions);
+  const session: any = await getServerSession(authOptions as any);
   if (!session || session.user.role !== "ADMIN") {
     redirect("/");
   }
