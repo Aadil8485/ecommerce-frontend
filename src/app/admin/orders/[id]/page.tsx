@@ -82,7 +82,7 @@ export default async function OrderDetailsPage({ params }: { params: any }) {
                 Items Ordered 🛒
               </h2>
               <div className="space-y-4">
-                {order.items?.map((item) => (
+                {order.items.map((item: any) => (
                   <div
                     key={item.id}
                     className="flex items-center justify-between border-b pb-4 last:border-0 last:pb-0"
