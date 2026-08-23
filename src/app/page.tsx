@@ -1,7 +1,7 @@
 // src/app/page.js
 import ProductGridWithSearch from "./ProductGridWithSearch";
 import Link from "next/link";
-import { PrismaClient } from "../generated/prisma";
+import { PrismaClient } from "@prisma/client";
 
 // 🔥 YEH HAI MASTER FILTER
 const getValidImage = (url) => {
