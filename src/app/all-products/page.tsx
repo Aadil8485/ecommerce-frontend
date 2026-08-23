@@ -1,3 +1,11 @@
+export default function AllProductsPage() {
+  return (
+    <div className="flex justify-center items-center h-screen text-2xl font-bold">
+      All Products Page - Coming Soon!
+    </div>
+  );
+}
+
 // import { Heart, Star, StarHalf } from "lucide-react";
 // import Link from "next/link";
 
