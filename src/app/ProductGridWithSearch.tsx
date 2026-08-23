@@ -12,7 +12,11 @@ const getValidImage = (url: any) => {
   return url;
 };
 
-export default function ProductGridWithSearch({ allProducts }) {
+export default function ProductGridWithSearch({
+  allProducts,
+}: {
+  allProducts: any;
+}) {
   const [searchTerm, setSearchTerm] = useState("");
   const { addToCart } = useCart();
 
