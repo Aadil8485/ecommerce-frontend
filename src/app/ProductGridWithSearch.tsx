@@ -50,7 +50,7 @@ export default function ProductGridWithSearch({
 
       {filteredProducts.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredProducts.map((product) => (
+          {filteredProducts.map((product: any) => (
             <div
               key={product.id}
               className="bg-white border rounded-xl p-4 shadow-sm hover:shadow-md transition flex flex-col"
