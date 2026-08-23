@@ -22,7 +22,7 @@ export default function ProductGridWithSearch({
 
   // Search Logic
   const filteredProducts = allProducts.filter(
-    (product) =>
+    (product: any) =>
       product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (product.description &&
         product.description.toLowerCase().includes(searchTerm.toLowerCase())),
