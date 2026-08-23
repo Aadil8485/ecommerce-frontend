@@ -1,3 +1,11 @@
+export default function ProductDetailsPage() {
+  return (
+    <div className="flex justify-center items-center h-screen text-2xl font-bold">
+      Product Details Page - Coming Soon!
+    </div>
+  );
+}
+
 // "use client";
 
 // import { useState } from "react";
