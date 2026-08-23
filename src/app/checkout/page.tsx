@@ -437,7 +437,7 @@ export default function CheckoutPage() {
         body: JSON.stringify({
           items: cartItems,
           address: address,
-          totalAmount: totalPrice,
+          totalPrice: totalPrice,
         }),
       });
 

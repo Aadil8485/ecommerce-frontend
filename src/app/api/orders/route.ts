@@ -38,7 +38,7 @@ export async function POST(req) {
       data: {
         address: address,
         // Dhyan dein: Agar aapke db me iska naam 'total' hai toh 'total: totalAmount' likhein
-        totalPrice: parseFloat(totalAmount),
+        totalPrice: parseFloat(totalPrice),
         status: "PENDING",
 
         // Order ko us user se link karna jisne login kiya hai

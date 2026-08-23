@@ -76,7 +76,7 @@ export default async function AdminOrdersPage() {
                         {new Date(order.createdAt).toLocaleDateString("en-IN")}
                       </td>
                       <td className="p-4 font-bold text-green-600">
-                        ₹{order.totalAmount || order.total || 0}{" "}
+                        ₹{order.totalPrice || 0}{" "}
                         {/* Aapke db column ke hisaab se */}
                       </td>
                       <td className="p-4">
