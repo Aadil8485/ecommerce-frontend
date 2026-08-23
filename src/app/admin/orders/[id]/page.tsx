@@ -11,7 +11,7 @@ const prisma = new PrismaClient();
 
 export default async function OrderDetailsPage({ params }: { params: any }) {
   // 1. Security Check
-  const session = await getServerSession(authOptions as any);
+  const session: any = await getServerSession(authOptions as any);
   if (!session || session.user.role !== "ADMIN") {
     redirect("/");
   }
