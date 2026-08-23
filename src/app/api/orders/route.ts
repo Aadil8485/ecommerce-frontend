@@ -21,7 +21,7 @@ export async function POST(req) {
 
     // 2. Frontend se aane wala data (Cart items aur Address) nikalna
     const body = await req.json();
-    const { items, address, totalAmount } = body;
+    const { items, address, totalPrice } = body;
 
     // 🔥 YEH LINE ADD KAREIN (Checking ke liye)
     console.log("Frontend se yeh data aaya:", body);
@@ -38,7 +38,7 @@ export async function POST(req) {
       data: {
         address: address,
         // Dhyan dein: Agar aapke db me iska naam 'total' hai toh 'total: totalAmount' likhein
-        totalPrice: parseFloat(totalAmount),
+        totalPrice: parseFloat(totalPrice),
         status: "PENDING",
 
         // Order ko us user se link karna jisne login kiya hai
