@@ -9,7 +9,7 @@ import { revalidatePath } from "next/cache"; // 🔥 NAYA IMPORT: Page refresh k
 
 const prisma = new PrismaClient();
 
-export default async function OrderDetailsPage({ params }) {
+export default async function OrderDetailsPage({ params }: { params: any }) {
   // 1. Security Check
   const session = await getServerSession(authOptions);
   if (!session || session.user.role !== "ADMIN") {
